@@ -380,6 +380,7 @@ footer {
     .cursor, .cursor-dot { display: none; }
     * { cursor: auto; }
 }
+
 /* Add this to style.css if you haven't yet */
 .custom-icon {
     width: 60px;
@@ -406,14 +407,8 @@ footer {
 /* 1. THE SPIN + COLOR CHANGE */
 .service-card:hover .custom-icon {
     transform: rotateY(360deg);
-
-    /* This filter forces the image to turn Gold */
-    filter: invert(74%) sepia(9%) saturate(2462%) hue-rotate(2deg) brightness(97%) contrast(92%);
-}
-.service-card:hover .custom-icon {
-    transform: rotateY(360deg);
     /* Creates a gold glow around the icon */
-    filter: drop-shadow(0 0 10px var(--gold));
+    filter: invert(74%) sepia(9%) saturate(2462%) hue-rotate(2deg) brightness(97%) contrast(92%) drop-shadow(0 0 10px var(--gold));
 }
 
 /* =========================================
@@ -476,6 +471,11 @@ footer {
     transform: rotateY(360deg);
 }
 
+/* Hamburger menu disabled when not on mobile */
+.hamburger{
+    display: none;
+}
+
 /* =========================================
    EMERGENCY MOBILE FIX (The "Nuclear" Option)
    ========================================= */
@@ -532,6 +532,8 @@ footer {
         /* Ensure it starts at the very top */
         margin-top: 0 !important;
         padding-top: 0 !important;
+
+
     }
 
     .hero h1 {
@@ -581,4 +583,21 @@ footer {
 
     /* Hide Desktop Hover Effects on Mobile */
     .cursor, .cursor-dot { display: none !important; }
+
+    /* --- 6. FIX THE PRELOADER ON MOBILE --- */
+    .loader-logo {
+        font-size: 1.5rem !important; /* Shrink text from 3rem to 1.5rem */
+        letter-spacing: 2px !important; /* Tighten spacing slightly */
+    }
+
+    .loading-bar {
+        height: 3px !important; /* Make bar slightly thicker so it's visible */
+        /* Animation will still work, but now relative to smaller text */
+    }
+
+    /* FORCE MAP TO BE COLORED ON MOBILE */
+    .map-box {
+        filter: grayscale(0%) !important; /* Turn off B&W filter */
+        filter: none !important; /* Safety backup */
+    }
 }
